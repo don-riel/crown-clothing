@@ -1,7 +1,7 @@
 import React from 'react';
 
 import CollectionPreview from '../../components/collection-preview/collection-preview.component';
-import Shop_Data from './shop_data.js'
+import Shop_Data from '../../redux/shop/shop.data';
 
 
 class ShopPage extends React.Component {
