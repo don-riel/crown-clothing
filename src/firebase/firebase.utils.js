@@ -50,7 +50,7 @@ export const addCollectionAndDocuments = async (collectioKey, objectsToAdd) => {
 };
 
 export const convertCollectionsSnapshotToMap = (collections) => {
-  const transfromedCollection = collections.doc.map(doc => {
+  const transfromedCollection = collections.docs.map(doc => {
     const { title, items } = doc.data();
 
     return {
@@ -61,7 +61,10 @@ export const convertCollectionsSnapshotToMap = (collections) => {
     }
   });
 
-  console.log(transfromedCollection);
+  return transfromedCollection.reduce((accumulator, collection) => {
+    accumulator[collection.title.toLowerCase()] = collection;
+    return accumulator;
+  },{});
 };
 
 firebase.initializeApp(config);
